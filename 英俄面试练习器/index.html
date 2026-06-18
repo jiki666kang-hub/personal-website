@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>英俄面试练习器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <section class="practice">
+      <header>
+        <div>
+          <p class="eyebrow">30-45 秒稳定表达</p>
+          <h1>英俄面试练习器</h1>
+          <a class="header-link" href="../康康求职行动台/materials/viewer.html?id=en-ru-intro-card">查看英俄速记卡 PDF</a>
+        </div>
+        <img src="../assets/images/汲康康.png" alt="汲康康简历照片">
+      </header>
+
+      <div class="question-board">
+        <div class="mode-row" role="tablist" aria-label="练习模式">
+          <button class="mode active" data-mode="mixed">混合</button>
+          <button class="mode" data-mode="cn">中文</button>
+          <button class="mode" data-mode="en">English</button>
+          <button class="mode" data-mode="ru">Русский</button>
+        </div>
+        <p class="label" id="questionType">混合问题</p>
+        <h2 id="question">请做一次 45 秒英文自我介绍。</h2>
+        <div class="actions">
+          <button id="nextQuestion">换一题</button>
+          <button id="showAnswer">显示参考</button>
+          <button id="copyAnswer">复制参考</button>
+        </div>
+      </div>
+
+      <div class="answer" id="answer"></div>
+    </section>
+
+    <aside class="coach">
+      <section class="panel timer-panel">
+        <h2>计时</h2>
+        <div class="timer" id="timer">00:00</div>
+        <div class="timer-buttons">
+          <button id="start">开始</button>
+          <button id="stop">暂停</button>
+          <button id="reset">重置</button>
+        </div>
+        <p class="hint">自我介绍控制在 30-45 秒；项目讲解控制在 90 秒。</p>
+      </section>
+
+      <section class="panel">
+        <h2>合格标准</h2>
+        <label><input type="checkbox"> 没有中途切回中文</label>
+        <label><input type="checkbox"> 忘词后能换简单句继续说</label>
+        <label><input type="checkbox"> 说清楚专业、项目和外派意愿</label>
+        <label><input type="checkbox"> 听不清时能请求重复</label>
+      </section>
+
+      <section class="panel">
+        <h2>救场句</h2>
+        <button class="phrase" data-text="Could you speak a little more slowly, please?">Could you speak a little more slowly, please?</button>
+        <button class="phrase" data-text="Could you repeat the question, please?">Could you repeat the question, please?</button>
+        <button class="phrase" data-text="Можно немного медленнее, пожалуйста?">Можно немного медленнее, пожалуйста?</button>
+        <button class="phrase" data-text="Повторите вопрос, пожалуйста.">Повторите вопрос, пожалуйста.</button>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>练习记录</h2>
+          <button id="clearLog" title="清空记录">×</button>
+        </div>
+        <button id="saveLog">记录这次</button>
+        <div class="log" id="log"></div>
+      </section>
+    </aside>
+  </main>
+
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
+

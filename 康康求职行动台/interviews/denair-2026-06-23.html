@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>德耐尔俄语外贸销售工程师面试卡</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d8dee8;
+      --panel: #fff;
+      --accent: #0f766e;
+      --soft: #e8f3f1;
+      --dark: #111827;
+      --warn: #8a4b0f;
+      --warn-bg: #fff4e5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+    }
+
+    .shell {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    aside {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 22px;
+      background: var(--dark);
+      color: white;
+      overflow: auto;
+    }
+
+    .brand {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 8px;
+      background: var(--accent);
+      font-weight: 800;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 6px;
+      font-size: 23px;
+      line-height: 1.25;
+    }
+
+    aside p {
+      margin-bottom: 0;
+      color: #cbd5e1;
+      line-height: 1.55;
+    }
+
+    nav {
+      display: grid;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    nav a,
+    .button {
+      min-height: 38px;
+      padding: 9px 12px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 8px;
+      color: white;
+      text-decoration: none;
+      background: rgba(255,255,255,.06);
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      background: white;
+      color: var(--dark);
+    }
+
+    main {
+      display: grid;
+      gap: 16px;
+      padding: 24px;
+    }
+
+    .hero,
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 14px 36px rgba(28, 35, 48, .07);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: end;
+      padding: 22px;
+    }
+
+    .eyebrow {
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .hero h2 {
+      margin-bottom: 8px;
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    .hero p,
+    .muted {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-color: var(--accent);
+      background: var(--accent);
+      color: white;
+    }
+
+    .button.ghost {
+      background: white;
+      color: var(--accent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .panel {
+      padding: 18px;
+    }
+
+    .panel h3 {
+      margin-bottom: 12px;
+      font-size: 19px;
+    }
+
+    .verdict {
+      border-color: rgba(15, 118, 110, .28);
+      background: var(--soft);
+    }
+
+    .risk {
+      border-color: rgba(138, 75, 15, .28);
+      background: var(--warn-bg);
+    }
+
+    ul, ol {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.75;
+    }
+
+    li + li {
+      margin-top: 4px;
+    }
+
+    .script {
+      margin: 0;
+      color: #344054;
+      line-height: 1.8;
+      white-space: pre-line;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border-radius: 8px;
+      background: #eef2f7;
+      color: #344054;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .source-list a {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .edit-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: end;
+      margin-bottom: 14px;
+    }
+
+    .answer-bank {
+      display: grid;
+      gap: 12px;
+    }
+
+    .answer-card {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+
+    .answer-card h4 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .answer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .edit-field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .edit-field label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .editable-answer {
+      width: 100%;
+      min-height: 126px;
+      resize: vertical;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      background: white;
+      font: inherit;
+      line-height: 1.65;
+    }
+
+    .editable-answer[data-lang="ru"] {
+      color: #23324a;
+    }
+
+    .copy-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .small-btn {
+      min-height: 34px;
+      padding: 0 11px;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      background: white;
+      color: var(--accent);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .small-btn.primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .save-status {
+      min-height: 20px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 920px) {
+      .shell,
+      .hero,
+      .grid,
+      .edit-head,
+      .answer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: relative;
+        height: auto;
+      }
+
+      main {
+        padding: 14px;
+      }
+
+      .actions {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside>
+      <div class="brand">
+        <div class="mark">面试</div>
+        <div>
+          <h1>德耐尔面试作战卡</h1>
+          <p>俄语外贸销售工程师，先把可说的话、必须问清的事和风险边界放在手边。</p>
+        </div>
+      </div>
+      <nav>
+        <a href="../index.html#view=interview">返回面试页</a>
+        <a href="#editable-ru">可编辑中俄回答库</a>
+        <a href="../materials/viewer.html?id=en-ru-intro-card">英俄速记卡 PDF</a>
+        <a href="../materials/viewer.html?id=russian-sales-resume">俄语销售简历</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">2026-06-23 中国时间 10:00 / 叶卡捷琳堡时间 07:00</p>
+          <h2>德耐尔节能科技（上海）股份有限公司 · 俄语外贸销售工程师</h2>
+          <p>岗位关键词：俄语、外贸销售、工业设备、空压机、真空泵、客户询盘、区域市场、外派可能。</p>
+        </div>
+        <div class="actions">
+          <a class="button ghost" href="../index.html#view=calendar">看日历提醒</a>
+          <a class="button" href="../materials/viewer.html?id=russian-sales-resume">打开俄语销售简历</a>
+        </div>
+      </section>
+
+      <section class="panel verdict">
+        <h3>是否值得去</h3>
+        <p class="script">建议参加，值得面试，但不要立刻视为唯一主线。
+
+作为“俄语 + 外贸 + 工业设备”的试水机会，它和你的俄语、俄罗斯学习生活经历、工程背景有明显连接。真正要判断的是：客户资源是否真实、培训是否稳定、薪资结构是否透明、外派和业绩压力是否可承受。</p>
+        <div class="tag-row">
+          <span class="tag">值得面试</span>
+          <span class="tag">重点观察薪资结构</span>
+          <span class="tag">不提前承诺高外派</span>
+        </div>
+      </section>
+
+      <div class="grid">
+        <section class="panel">
+          <h3>岗位匹配点</h3>
+          <ul>
+            <li>俄语 B2、俄罗斯学习生活经历，可支撑俄罗斯/独联体客户沟通。</li>
+            <li>测绘和工程背景能帮助你理解工业设备资料、客户现场需求和技术方案。</li>
+            <li>外贸销售工程师需要语言、客户沟通、技术理解和内部协作，这几项你能组合起来讲。</li>
+            <li>岗位要求可接受外派，这和你已有海外适应能力能形成差异化。</li>
+          </ul>
+        </section>
+
+        <section class="panel risk">
+          <h3>风险与边界</h3>
+          <ul>
+            <li>这是销售岗，不是纯技术岗，要问清业绩指标和提成规则。</li>
+            <li>产品是空压机、真空泵和工业气体设备，你需要承认产品知识要补课。</li>
+            <li>不要面试中直接承诺“任何国家长期外派都可以”，先问区域、周期、补贴和安全支持。</li>
+            <li>如果客户来源全靠新人自拓、底薪低、培训弱，要谨慎进入下一轮。</li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="panel">
+        <h3>60 秒中文自我介绍</h3>
+        <p class="script">面试官您好，我叫汲康康。本科是测绘工程，硕士在俄罗斯乌拉尔联邦大学学习大地测量学与测量工程，目前已经完成硕士论文答辩。我有接近两年的俄罗斯学习和生活经历，俄语达到 B2 水平，英语也能用于基础沟通。
+
+虽然我的专业背景不是机械设备，但我有工程类项目经验，熟悉技术资料阅读、现场问题理解和跨语言沟通。我理解外贸销售工程师不只是卖产品，还要准确理解客户需求，和技术、市场、售后团队一起把方案说明清楚。对空压机、真空泵这类产品，我愿意从产品结构、应用场景、客户痛点和选型逻辑开始系统学习。
+
+我希望把俄语能力、海外适应能力和工程背景结合起来，先在俄罗斯或独联体相关市场做好客户跟进、询盘回复和方案沟通，逐步成长为能独立负责区域客户的外贸销售工程师。</p>
+      </section>
+
+      <section class="panel" id="editable-ru">
+        <div class="edit-head">
+          <div>
+            <h3>可编辑中俄对照回答库</h3>
+            <p class="muted">左边是中文意思，右边是俄语回答。面试官问到哪一块，就复制或照着右边单独回答；你改过的内容会保存在当前浏览器里。</p>
+          </div>
+          <div class="copy-row">
+            <button class="small-btn primary" data-save-answers>保存全部</button>
+            <button class="small-btn" data-reset-answers>恢复默认</button>
+          </div>
+        </div>
+        <div class="answer-bank">
+          <article class="answer-card">
+            <h4>1. 俄语开场</h4>
+            <div class="answer-grid">
+              <div class="edit-field">
+                <label>中文意思</label>
+                <textarea class="editable-answer" data-answer-key="opening-cn" data-lang="cn">您好，我叫汲康康。我在俄罗斯学习生活将近两年，在乌拉尔联邦大学完成大地测量与测量工程硕士学习。</textarea>
+              </div>
+              <div class="edit-field">
+                <label>俄语回答</label>
+                <textarea class="editable-answer" data-answer-key="opening-ru" data-lang="ru">Здравствуйте, меня зовут Цзи Канкан. Я почти два года учился и жил в России, в Уральском федеральном университете, по направлению геодезия и геодезические работы.</textarea>
+              </div>
+            </div>
+            <div class="copy-row"><button class="small-btn" data-copy-answer="opening-ru">复制这段俄语</button></div>
+          </article>
+
+          <article class="answer-card">
+            <h4>2. 学历和工程背景</h4>
+            <div class="answer-grid">
+              <div class="edit-field">
+                <label>中文意思</label>
+                <textarea class="editable-answer" data-answer-key="education-cn" data-lang="cn">我的本科是测绘工程，硕士也是工程方向。我习惯阅读技术资料、理解现场需求，并把复杂问题拆成参数、流程和结果。</textarea>
+              </div>
+              <div class="edit-field">
+                <label>俄语回答</label>
+                <textarea class="editable-answer" data-answer-key="education-ru" data-lang="ru">Моё первое образование связано с геодезией и картографией, магистратура тоже была инженерного направления. Поэтому я привык читать технические материалы, понимать задачи на объекте и разделять сложные вопросы на параметры, процесс и результат.</textarea>
+              </div>
+            </div>
+            <div class="copy-row"><button class="small-btn" data-copy-answer="education-ru">复制这段俄语</button></div>
+          </article>
+
+          <article class="answer-card">
+            <h4>3. 为什么适合外贸销售工程师</h4>
+            <div class="answer-grid">
+              <div class="edit-field">
+                <label>中文意思</label>
+                <textarea class="editable-answer" data-answer-key="fit-cn" data-lang="cn">我不是单纯语言背景，也不是单纯工程背景。我能把俄语沟通、俄罗斯经历和工程理解结合起来，帮助客户和公司技术团队之间沟通。</textarea>
+              </div>
+              <div class="edit-field">
+                <label>俄语回答</label>
+                <textarea class="editable-answer" data-answer-key="fit-ru" data-lang="ru">Я подхожу для этой позиции, потому что у меня есть не только языковая база, но и инженерное мышление. Я могу соединить русский язык, опыт жизни в России и понимание технических задач, чтобы помогать в коммуникации между клиентом и технической командой компании.</textarea>
+              </div>
+            </div>
+            <div class="copy-row"><button class="small-btn" data-copy-answer="fit-ru">复制这段俄语</button></div>
+          </article>
+
+          <article class="answer-card">
+            <h4>4. 为什么从测绘转外贸销售</h4>
+            <div class="answer-grid">
+              <div class="edit-field">
+                <label>中文意思</label>
+                <textarea class="editable-answer" data-answer-key="transfer-cn" data-lang="cn">我不是放弃技术，而是希望把技术理解、俄语能力和客户沟通结合起来。这个岗位能让我服务俄罗斯或独联体客户。</textarea>
+              </div>
+              <div class="edit-field">
+                <label>俄语回答</label>
+                <textarea class="editable-answer" data-answer-key="transfer-ru" data-lang="ru">Я не хочу полностью уходить от технической сферы. Наоборот, я хочу использовать техническое понимание вместе с русским языком и коммуникацией с клиентами. Эта позиция подходит мне, потому что я смогу работать с клиентами из России и стран СНГ.</textarea>
+              </div>
+            </div>
+            <div class="copy-row"><button class="small-btn" data-copy-answer="transfer-ru">复制这段俄语</button></div>
+          </article>
+
+          <article class="answer-card">
+            <h4>5. 不懂空压机怎么办</h4>
+            <div class="answer-grid">
+              <div class="edit-field">
+                <label>中文意思</label>
+                <textarea class="editable-answer" data-answer-key="product-cn" data-lang="cn">空压机和真空泵不是我原专业，但我有工程学习能力。我会从产品线、应用场景、客户常见问题和选型报价流程开始学。</textarea>
+              </div>
+              <div class="edit-field">
+                <label>俄语回答</label>
+                <textarea class="editable-answer" data-answer-key="product-ru" data-lang="ru">Компрессоры и вакуумные насосы не были моей основной специальностью, поэтому мне нужно будет системно изучать продукты. Но у меня есть инженерная база и способность быстро учиться. Я бы начал с продуктовой линейки, областей применения, типичных вопросов клиентов и процесса подбора оборудования и расчёта предложения.</textarea>
+              </div>
+            </div>
+            <div class="copy-row"><button class="small-btn" data-copy-answer="product-ru">复制这段俄语</button></div>
+          </article>
+
+          <article class="answer-card">
+            <h4>6. 能否接受业绩压力和外派</h4>
+            <div class="answer-grid">
+              <div class="edit-field">
+                <label>中文意思</label>
+                <textarea class="editable-answer" data-answer-key="pressure-cn" data-lang="cn">我能接受合理业绩压力和出差外派，但希望提前了解区域、周期、客户资源、培训支持和考核方式。</textarea>
+              </div>
+              <div class="edit-field">
+                <label>俄语回答</label>
+                <textarea class="editable-answer" data-answer-key="pressure-ru" data-lang="ru">Я готов к разумной рабочей нагрузке, командировкам и, при необходимости, к работе за рубежом. Но мне важно заранее понять регион ответственности, длительность командировок, источники клиентов, систему обучения и критерии оценки результата.</textarea>
+              </div>
+            </div>
+            <div class="copy-row"><button class="small-btn" data-copy-answer="pressure-ru">复制这段俄语</button></div>
+          </article>
+        </div>
+        <p class="save-status" id="answerSaveStatus">可直接编辑，点击“保存全部”后会保存在本机浏览器。</p>
+      </section>
+
+      <div class="grid">
+        <section class="panel">
+          <h3>俄语开场</h3>
+          <p class="script">Здравствуйте, меня зовут Цзи Канкан. Я учился в России почти два года и получил степень магистра по геодезии и геодезическим работам в Уральском федеральном университете.
+
+У меня есть инженерное образование, опыт проектной работы и уровень русского языка B2. Я хотел бы использовать русский язык, техническое мышление и опыт жизни за рубежом в работе с клиентами из России и стран СНГ.</p>
+        </section>
+
+        <section class="panel">
+          <h3>为什么适合外贸销售工程师</h3>
+          <p class="script">我适合这个岗位，主要是因为我不是单纯语言背景，也不是单纯工程背景，而是两边都有基础。外贸销售工程师要能理解客户需求、用外语沟通、和技术部门确认方案、再把方案讲给客户听。
+
+我的俄语能支持日常工作沟通，俄罗斯经历让我更熟悉当地沟通习惯；工程训练让我面对产品参数、工况和方案时不会排斥技术细节。只要公司有系统产品培训，我可以比较快进入“客户需求 + 产品方案 + 商务推进”的工作节奏。</p>
+        </section>
+      </div>
+
+      <div class="grid">
+        <section class="panel">
+          <h3>不懂空压机怎么办</h3>
+          <p class="script">我会坦诚说，空压机和真空泵不是我原来的专业方向，需要系统学习。但我有工程专业训练，能看懂技术资料，也习惯把复杂流程拆成参数、场景和结果。
+
+入职后我会优先补三块：第一是核心产品线和应用场景；第二是客户常见问题，比如压力、流量、能耗、维护和售后；第三是选型和报价流程。我也会主动和技术、售后同事配合，确保给客户的信息准确。</p>
+        </section>
+
+        <section class="panel">
+          <h3>为什么从测绘转销售</h3>
+          <p class="script">我不是完全放弃技术，而是希望把技术理解、俄语和客户沟通结合起来。纯测绘岗位更偏现场执行，但俄语外贸销售工程师能让我把海外经历和工程背景用到客户需求分析、方案介绍和区域市场开发里。
+
+我愿意从基础产品和客户跟进做起，先把客户沟通和产品逻辑打牢，再逐步承担更完整的区域客户维护和销售目标。</p>
+        </section>
+      </div>
+
+      <section class="panel">
+        <h3>能否接受业绩压力和外派</h3>
+        <p class="script">可以接受业绩压力，也能接受合理的出差或外派。我比较希望提前了解几个具体问题：负责区域是俄罗斯、白俄罗斯还是独联体其他国家；外派周期通常多久；新人前三个月和六个月的考核指标是什么；公司会提供哪些客户资源、产品培训和技术支持。
+
+如果目标清晰、资源真实、培训和售后配合稳定，我愿意认真投入并承担结果。</p>
+      </section>
+
+      <div class="grid">
+        <section class="panel">
+          <h3>必须反问的问题</h3>
+          <ol>
+            <li>俄语市场主要负责俄罗斯、白俄罗斯还是独联体其他国家？</li>
+            <li>客户来源以平台询盘、展会、老客户转介绍还是自主开发为主？</li>
+            <li>新人产品培训周期多久？是否有技术部门配合客户方案？</li>
+            <li>薪资结构中底薪、提成、试用期和年度目标如何计算？</li>
+            <li>外派频率、周期、补贴和安全支持怎么安排？</li>
+            <li>这个岗位前三个月最重要的考核指标是什么？</li>
+          </ol>
+        </section>
+
+        <section class="panel">
+          <h3>面试前行动清单</h3>
+          <ol>
+            <li>确认面试形式：电话、视频还是现场。</li>
+            <li>背熟 60 秒中文介绍，不要超过 1 分 20 秒。</li>
+            <li>练 2 遍俄语开场，重点是慢、稳、清楚。</li>
+            <li>快速看德耐尔产品：空压机、真空泵、制氮/制氧机。</li>
+            <li>准备好“为什么转外贸销售”和“不懂产品如何学习”的回答。</li>
+            <li>面试结束前一定问薪资结构、客户来源和培训周期。</li>
+          </ol>
+        </section>
+      </div>
+
+      <section class="panel">
+        <h3>整理后的岗位职责</h3>
+        <ul>
+          <li>通过海外市场客户询盘回复，负责区域内高端空压机及气体流体机械设备销售。</li>
+          <li>分析客户当前和潜在产品需求，提供产品和服务，并建立良好客户关系。</li>
+          <li>与内部技术、市场和售后团队协作，进行方案演示和介绍。</li>
+          <li>收集区域市场、行业趋势、竞争对手价格和活动信息，完成销售指标。</li>
+          <li>要求良好的英语或俄语表达能力，熟悉外国文化与商务习惯，能够接受外派。</li>
+        </ul>
+      </section>
+
+      <section class="panel source-list">
+        <h3>公司信息来源</h3>
+        <ul>
+          <li><a href="https://www.denair.cn/" target="_blank" rel="noreferrer">德耐尔中文官网</a>：工业气体系统解决方案、产品线、全球业务范围。</li>
+          <li><a href="https://www.denair.cn/ContactUs" target="_blank" rel="noreferrer">德耐尔联系页</a>：证券代码、总部地址、全球客户中心。</li>
+          <li><a href="https://www.zhaopin.com/companydetail/CZ487916820.htm" target="_blank" rel="noreferrer">智联招聘公司页</a>：新三板挂牌、境外销售服务大区、在招职位。</li>
+          <li><a href="https://www.denair.net/" target="_blank" rel="noreferrer">DENAIR 英文官网</a>：英文产品定位、分支/员工规模、节能解决方案。</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+  <script>
+    const answerKey = "denairEditableAnswers";
+    const answerFields = [...document.querySelectorAll("[data-answer-key]")];
+    const statusNode = document.getElementById("answerSaveStatus");
+    const defaultAnswers = Object.fromEntries(answerFields.map(field => [field.dataset.answerKey, field.value]));
+
+    function readSavedAnswers() {
+      try {
+        return JSON.parse(localStorage.getItem(answerKey)) || {};
+      } catch {
+        return {};
+      }
+    }
+
+    function setStatus(text) {
+      if (!statusNode) return;
+      statusNode.textContent = text;
+      window.setTimeout(() => {
+        statusNode.textContent = "可直接编辑，点击“保存全部”后会保存在本机浏览器。";
+      }, 2200);
+    }
+
+    function loadAnswers() {
+      const saved = readSavedAnswers();
+      answerFields.forEach(field => {
+        if (saved[field.dataset.answerKey]) field.value = saved[field.dataset.answerKey];
+      });
+    }
+
+    function saveAnswers() {
+      const next = Object.fromEntries(answerFields.map(field => [field.dataset.answerKey, field.value]));
+      localStorage.setItem(answerKey, JSON.stringify(next));
+      setStatus("已保存中俄对照回答。");
+    }
+
+    function resetAnswers() {
+      answerFields.forEach(field => {
+        field.value = defaultAnswers[field.dataset.answerKey] || "";
+      });
+      localStorage.removeItem(answerKey);
+      setStatus("已恢复默认回答。");
+    }
+
+    function copyAnswer(key) {
+      const field = document.querySelector(`[data-answer-key="${key}"]`);
+      if (!field) return;
+      const text = field.value;
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => setStatus("已复制这段俄语。"));
+        return;
+      }
+      field.focus();
+      field.select();
+      document.execCommand("copy");
+      setStatus("已复制这段俄语。");
+    }
+
+    document.querySelector("[data-save-answers]").addEventListener("click", saveAnswers);
+    document.querySelector("[data-reset-answers]").addEventListener("click", resetAnswers);
+    document.querySelectorAll("[data-copy-answer]").forEach(button => {
+      button.addEventListener("click", () => copyAnswer(button.dataset.copyAnswer));
+    });
+    loadAnswers();
+  </script>
+</body>
+</html>

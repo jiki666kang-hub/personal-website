@@ -1,0 +1,372 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>康康求职行动台</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="求职导航">
+      <div class="brand">
+        <button class="avatar-button" id="openProfile" title="打开个人中心">
+          <img class="avatar" src="../assets/images/汲康康.png" alt="汲康康简历照片">
+        </button>
+        <div>
+          <h1>康康求职行动台</h1>
+          <p>测绘 · 俄语 · 海外项目</p>
+        </div>
+      </div>
+
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-view="today" title="今日行动"><span>⌂</span>今日</button>
+        <button class="nav-tab" data-view="directions" title="求职方向"><span>◎</span>方向</button>
+        <button class="nav-tab" data-view="materials" title="材料包"><span>▣</span>材料</button>
+        <button class="nav-tab" data-view="interview" title="面试速记"><span>◈</span>面试</button>
+        <button class="nav-tab" data-view="tracker" title="投递记录"><span>✓</span>投递</button>
+        <button class="nav-tab" data-view="cert" title="留服认证"><span>※</span>认证</button>
+        <button class="nav-tab" data-view="calendar" title="日历提醒"><span>□</span>日历</button>
+        <button class="nav-tab" data-view="profile" title="个人中心"><span>◇</span>我的</button>
+        <button class="nav-tab" data-view="storage" title="保存中心"><span>◌</span>保存</button>
+      </nav>
+
+      <section class="side-panel">
+        <h2>硬提醒</h2>
+        <button class="deadline deadline-button" data-open-event="2026-06-18">
+          <strong>2026-06-18 周四</strong>
+          <span>去系办取毕业证和硕士成绩单</span>
+        </button>
+        <div class="mini-calendar-strip" aria-label="重点日历">
+          <button data-open-event="2026-06-17"><strong>17</strong><span>求职</span></button>
+          <button data-open-event="2026-06-18"><strong>18</strong><span>取证</span></button>
+          <button data-open-event="2026-06-19"><strong>19</strong><span>扫描</span></button>
+          <button data-open-event="2026-06-20"><strong>20</strong><span>投递</span></button>
+          <button data-open-event="2026-06-21"><strong>21</strong><span>复盘</span></button>
+        </div>
+        <div class="quote">学无止境，不要停下你的脚步。</div>
+      </section>
+
+      <section class="side-panel tool-links">
+        <h2>快捷工具</h2>
+        <a href="../岗位匹配打分器/index.html">岗位匹配打分器</a>
+        <a href="../英俄面试练习器/index.html">英俄面试练习器</a>
+        <a href="../个人资料导航页/index.html">个人资料导航页</a>
+      </section>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">2026-06-17 睡醒后执行</p>
+          <h2 id="viewTitle">今日行动</h2>
+        </div>
+        <div class="quick-stats" aria-label="求职概览">
+          <div><strong>3</strong><span>主攻方向</span></div>
+          <div><strong>B2</strong><span>俄语</span></div>
+          <div><strong>1:500</strong><span>地形图</span></div>
+          <div><strong>109k</strong><span>重建点</span></div>
+        </div>
+      </header>
+
+      <section class="view active" id="today">
+        <div class="split">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>醒来后只做这 3 件事</h3>
+              <button class="icon-btn" id="resetToday" title="重置今日勾选">↺</button>
+            </div>
+            <div class="task-list" id="todayTasks"></div>
+          </section>
+
+          <section class="panel evidence-hero">
+            <img src="../assets/images/公园完成图.png" alt="莫洛佐夫公园地形图成果">
+            <div>
+              <h3>今天主线</h3>
+              <p>先读求职规划，再选 1 到 3 个动作。最小可执行动作是：整理一个岗位方向的投递材料包。</p>
+              <div class="mini-grid">
+                <span>工程测量</span>
+                <span>海外技术支持</span>
+                <span>俄语客户服务</span>
+                <span>留服认证准备</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h3>90 分钟推进块</h3>
+            <button class="primary-btn" id="startFocus">开始 25 分钟</button>
+          </div>
+          <div class="focus-row">
+            <div class="timer" id="timer">25:00</div>
+            <div class="focus-copy">
+              <strong id="focusTitle">第一块：看求职手册</strong>
+              <p id="focusDetail">只读目录和“接下来七天顺序”，不要陷入全文精读。</p>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="directions">
+        <section class="panel">
+          <div class="panel-head">
+            <h3>方向说明</h3>
+            <a class="text-link" href="../岗位匹配打分器/index.html">打开岗位匹配打分器</a>
+          </div>
+          <p class="muted-copy">点击任意方向卡片，可以看到招聘网站入口、推荐关键词、推荐简历和材料包。</p>
+        </section>
+        <div class="direction-grid" id="directionGrid"></div>
+      </section>
+
+      <section class="view" id="materials">
+        <div class="split">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>面试前材料包</h3>
+              <div class="button-row">
+                <a class="primary-btn ghost-btn" href="materials/viewer.html?id=survey-overseas-resume">查看材料库</a>
+                <button class="icon-btn" id="resetMaterials" title="重置材料勾选">↺</button>
+              </div>
+            </div>
+            <div class="check-columns" id="materialList"></div>
+          </section>
+          <section class="panel evidence-strip">
+            <h3>作品集证据</h3>
+            <div class="evidence-grid">
+              <figure>
+                <img src="../assets/images/坐标标注结果图.png" alt="坐标标注结果图">
+                <figcaption>1:500 地形图：坐标与标注</figcaption>
+              </figure>
+              <figure>
+                <img src="../assets/images/cad.png" alt="CAD 成图截图">
+                <figcaption>CAD/CASS 成图能力</figcaption>
+              </figure>
+              <figure>
+                <img src="../assets/images/雕塑成果图.png" alt="公园雕塑成果图">
+                <figcaption>地物建模与表达</figcaption>
+              </figure>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="view" id="interview">
+        <section class="panel interview-feature">
+          <div>
+            <p class="eyebrow">2026-06-23 中国时间 10:00</p>
+            <h3>德耐尔俄语外贸销售工程师面试作战卡</h3>
+            <p class="muted-copy">公司是否值得去、60 秒中文介绍、俄语开场、关键回答和必须反问的问题都放在这里。</p>
+          </div>
+          <a class="primary-btn" href="interviews/denair-2026-06-23.html">打开面试卡</a>
+        </section>
+        <div class="split">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>一分钟中文自我介绍</h3>
+              <button class="primary-btn" data-copy="cnIntro">复制</button>
+            </div>
+            <p class="script" id="cnIntro"></p>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h3>English 30-45 秒</h3>
+              <button class="primary-btn" data-copy="enIntro">复制</button>
+            </div>
+            <p class="script" id="enIntro"></p>
+          </section>
+        </div>
+        <section class="panel">
+          <h3>俄语救场句</h3>
+          <div class="phrase-grid" id="phraseGrid"></div>
+        </section>
+      </section>
+
+      <section class="view" id="tracker">
+        <div class="split">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>新增投递</h3>
+              <button class="primary-btn" id="addApplication">保存</button>
+            </div>
+            <form class="application-form" id="applicationForm">
+              <label>公司<input name="company" placeholder="例如：测绘/GNSS/海外项目公司"></label>
+              <label>岗位<input name="role" placeholder="例如：海外技术支持工程师"></label>
+              <label>方向
+                <select name="direction">
+                  <option>大地测量/工程测量</option>
+                  <option>GNSS/国际技术支持</option>
+                  <option>俄语销售/客户成功</option>
+                  <option>航空航天轨道仿真</option>
+                  <option>羽毛球教学</option>
+                </select>
+              </label>
+              <label>状态
+                <select name="status">
+                  <option>待投递</option>
+                  <option>已投递</option>
+                  <option>待面试</option>
+                  <option>已面试</option>
+                  <option>暂缓</option>
+                </select>
+              </label>
+              <label class="wide">下一步<input name="next" placeholder="例如：补作品集 PDF，明天 11:00 投递"></label>
+            </form>
+          </section>
+          <section class="panel">
+            <div class="panel-head">
+              <h3>本机投递记录</h3>
+              <div class="button-row">
+                <button class="primary-btn" id="exportApplications">导出 CSV</button>
+                <button class="icon-btn" id="clearApplications" title="清空记录">×</button>
+              </div>
+            </div>
+            <div class="application-list" id="applicationList"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="view" id="cert">
+        <div class="split">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>留服认证材料</h3>
+              <div class="button-row">
+                <button class="primary-btn" id="exportProgress">导出进度</button>
+                <button class="primary-btn ghost-btn" id="importProgress">导入</button>
+                <input class="hidden-input" type="file" id="progressFile" accept="application/json,.json">
+                <button class="icon-btn" id="resetCert" title="重置认证勾选">↺</button>
+              </div>
+            </div>
+            <p class="save-status" id="certSaveStatus">勾选后会自动保存到本机。</p>
+            <div class="check-columns" id="certList"></div>
+          </section>
+          <section class="panel">
+            <h3>证书到手后顺序</h3>
+            <ol class="steps">
+              <li>扫描毕业/学位证书、成绩单、护照和签证页。</li>
+              <li>按系统提示用国家政务服务平台 App 完成实人认证并获取出入境记录。</li>
+              <li>进入教育部留学服务中心网上服务大厅提交。</li>
+              <li>支付认证费，保存订单和申请编号。</li>
+              <li>收到补材料通知后，当天补齐。</li>
+            </ol>
+          </section>
+        </div>
+      </section>
+
+      <section class="view" id="calendar">
+        <div class="split calendar-layout">
+          <section class="panel">
+            <div class="panel-head">
+              <h3 id="calendarTitle">2026 年 6 月</h3>
+              <div class="button-row">
+                <button class="icon-btn ghost-icon" id="prevMonth" title="上个月">‹</button>
+                <button class="primary-btn" id="todayCalendar">回到重点日</button>
+                <button class="icon-btn ghost-icon" id="nextMonth" title="下个月">›</button>
+              </div>
+            </div>
+            <div class="year-strip" id="yearStrip"></div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+          </section>
+          <section class="panel event-detail">
+            <p class="eyebrow">日程详情</p>
+            <h3 id="eventTitle">选择一个日期</h3>
+            <p id="eventDate" class="muted-copy">点击日历里的日期查看当天事项。</p>
+            <div id="eventBody" class="event-body"></div>
+            <div class="calendar-note">
+              <label for="eventNote">个人备注</label>
+              <textarea id="eventNote" placeholder="例如：上午去系办；下午扫描成绩单；晚上投 1 个 GNSS 岗位。"></textarea>
+              <button class="primary-btn" id="saveEventNote">保存备注</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="view" id="profile">
+        <div class="split">
+          <section class="panel profile-card">
+            <div class="profile-head">
+              <img src="../assets/images/汲康康.png" alt="汲康康简历照片">
+              <div>
+                <p class="eyebrow">个人中心</p>
+                <h3>汲康康 / Kangkang Ji</h3>
+                <p>测绘工程本科，大地测量学与测量工程硕士；俄语 B2，英语基础较好，主攻测绘、GNSS、海外项目技术支持。</p>
+              </div>
+            </div>
+            <div class="profile-stats">
+              <span>硕士：乌拉尔联邦大学</span>
+              <span>本科：华北水利水电大学</span>
+              <span>电话：150****3957</span>
+              <span>邮箱：jiki666.kang@gmail.com</span>
+            </div>
+          </section>
+          <section class="panel">
+            <h3>核心材料入口</h3>
+            <div class="resource-list" id="profileResources"></div>
+          </section>
+        </div>
+        <section class="panel">
+          <h3>个人项目证据</h3>
+          <div class="evidence-grid">
+            <figure>
+              <img src="../assets/images/公园完成图.png" alt="公园完成图">
+              <figcaption>莫洛佐夫公园 1:500 地形图</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/images/坐标标注结果图.png" alt="坐标标注结果图">
+              <figcaption>坐标标注成果</figcaption>
+            </figure>
+            <figure>
+              <img src="../assets/images/cad.png" alt="CAD 成图截图">
+              <figcaption>CAD/CASS 成图截图</figcaption>
+            </figure>
+          </div>
+        </section>
+      </section>
+
+      <section class="view" id="storage">
+        <div class="split">
+          <section class="panel">
+            <div class="panel-head">
+              <h3>本机保存中心</h3>
+              <div class="button-row">
+                <button class="primary-btn" id="checkStorage">保存自检</button>
+                <button class="primary-btn" id="exportProgressStorage">导出备份</button>
+              </div>
+            </div>
+            <p class="muted-copy">这里专门检查“刷新后是否还保留”。勾选、备注和投递记录都保存在当前浏览器本机。</p>
+            <div class="storage-grid" id="storageGrid"></div>
+          </section>
+          <section class="panel">
+            <h3>恢复与说明</h3>
+            <div class="storage-actions">
+              <button class="primary-btn ghost-btn" id="importProgressStorage">导入 JSON 备份</button>
+              <button class="primary-btn ghost-btn" id="copyStorageSummary">复制保存摘要</button>
+            </div>
+            <div class="storage-help">
+              <p>如果换浏览器、清理缓存或使用无痕模式，本机保存可能丢失。最稳妥的做法是：每次完成一批勾选后，点“导出备份”。</p>
+              <p>导出的文件可以通过“导入 JSON 备份”恢复今日勾选、材料勾选、认证勾选、日历备注和投递记录。</p>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal" id="directionModal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="directionModalTitle">
+      <div class="panel-head">
+        <h3 id="directionModalTitle">方向详情</h3>
+        <button class="icon-btn" id="closeDirectionModal" title="关闭">×</button>
+      </div>
+      <div id="directionModalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="materials/catalog.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+

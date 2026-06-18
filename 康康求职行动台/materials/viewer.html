@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>材料预览</title>
+  <link rel="stylesheet" href="viewer.css">
+</head>
+<body>
+  <main class="viewer-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="mark">PDF</div>
+        <div>
+          <h1>材料预览</h1>
+          <p>站内查看，不触发 Word 下载</p>
+        </div>
+      </div>
+      <nav class="material-nav" id="materialNav"></nav>
+    </aside>
+
+    <section class="viewer-main">
+      <header class="viewer-top">
+        <div>
+          <p class="eyebrow" id="materialGroup">核心材料</p>
+          <h2 id="materialTitle">正在加载材料</h2>
+          <p id="materialDescription">请稍等。</p>
+        </div>
+        <div class="actions">
+          <a class="button ghost" href="../index.html#view=profile">返回个人中心</a>
+          <a class="button" id="openPdf" href="#">打开 PDF</a>
+          <a class="button ghost" id="openDocx" href="#">原始 Word</a>
+        </div>
+      </header>
+
+      <section class="pdf-panel">
+        <object id="pdfObject" data="" type="application/pdf">
+          <div class="fallback">
+            <h3>当前浏览器没有内嵌 PDF 预览</h3>
+            <p>可以点击上方“打开 PDF”在浏览器中查看，或使用“原始 Word”作为备用。</p>
+          </div>
+        </object>
+      </section>
+    </section>
+  </main>
+
+  <script src="catalog.js"></script>
+  <script src="viewer.js"></script>
+</body>
+</html>

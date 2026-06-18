@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>岗位匹配打分器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p>把岗位描述粘进来</p>
+        <h1>岗位匹配打分器</h1>
+      </div>
+      <img src="../assets/images/汲康康.png" alt="汲康康简历照片">
+    </header>
+
+    <section class="workbench">
+      <div class="panel input-panel">
+        <h2>岗位描述</h2>
+        <textarea id="jobText" placeholder="粘贴岗位职责、任职要求、工作地点、语言要求等内容"></textarea>
+        <div class="actions">
+          <button id="sample">填入示例</button>
+          <button id="score">开始打分</button>
+          <button id="clear">清空</button>
+        </div>
+      </div>
+
+      <div class="panel result-panel">
+        <h2>匹配结果</h2>
+        <div id="summary" class="summary">等待岗位描述。</div>
+        <div id="scores" class="scores"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>建议动作</h2>
+      <div id="advice" class="advice">
+        <p>粘贴岗位后，这里会显示推荐简历、材料包和 HR 开场方向。</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

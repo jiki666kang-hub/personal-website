@@ -1,0 +1,316 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>个人资料导航页</title>
+  <style>
+    :root {
+      --bg: #f5f6f8;
+      --ink: #202733;
+      --muted: #667085;
+      --line: #d9dee7;
+      --panel: #fff;
+      --accent: #155e75;
+      --soft: #e7f3f6;
+      --warn: #8a4b0f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: "Microsoft YaHei", Arial, sans-serif;
+    }
+    header {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 18px;
+      align-items: center;
+      padding: 26px clamp(16px, 4vw, 42px);
+      border-bottom: 1px solid var(--line);
+      background: #10202b;
+      color: white;
+    }
+    header img {
+      width: 86px;
+      height: 86px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,.3);
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 8px; font-size: 30px; }
+    header p { margin-bottom: 0; color: #d6e3ea; line-height: 1.6; }
+    main {
+      display: grid;
+      gap: 18px;
+      padding: 22px clamp(16px, 4vw, 42px) 40px;
+    }
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 180px;
+      gap: 12px;
+    }
+    input, select {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 0 12px;
+      background: white;
+      color: var(--ink);
+      font: inherit;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .section {
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 12px 32px rgba(25, 34, 45, .07);
+    }
+    .section h2 {
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+    .item {
+      display: grid;
+      gap: 6px;
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+    }
+    .item:first-of-type { border-top: 0; padding-top: 0; }
+    .item a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+      line-height: 1.35;
+    }
+    .item a:hover { text-decoration: underline; }
+    .item p {
+      margin-bottom: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      padding: 4px 7px;
+      border-radius: 8px;
+      background: var(--soft);
+      color: #164e63;
+      font-size: 12px;
+    }
+    .preview {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    figure { margin: 0; }
+    figure img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #eef2f6;
+    }
+    figcaption {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .note {
+      border-left: 4px solid var(--warn);
+      background: #fff7ed;
+    }
+    .hidden { display: none; }
+    @media (max-width: 980px) {
+      .grid, .toolbar { grid-template-columns: 1fr; }
+      .preview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 560px) {
+      header { grid-template-columns: 1fr; }
+      .preview { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="../assets/images/汲康康.png" alt="汲康康简历照片">
+    <div>
+      <h1>个人资料导航页</h1>
+      <p>把求职、作品集、留服认证和生活计划资料集中到一页。优先服务 2026-06-17 的求职推进。</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <input id="search" placeholder="搜索：测绘、俄语、作品集、认证、面试、羽毛球">
+      <select id="filter">
+        <option value="all">全部资料</option>
+        <option value="resume">简历</option>
+        <option value="plan">求职规划</option>
+        <option value="portfolio">作品集</option>
+        <option value="life">生活计划</option>
+        <option value="cert">认证</option>
+      </select>
+    </div>
+
+    <section class="section note">
+      <h2>明天最先打开</h2>
+      <div class="item" data-type="plan" data-keywords="求职 今日 行动 90分钟">
+        <a href="../求职行动包/01_睡醒后90分钟.md">睡醒后 90 分钟行动安排</a>
+        <p>先看这个，不要先翻全部简历。完成 1 次投递，比整理 10 个想法更重要。</p>
+        <div class="tag-row"><span class="tag">今日</span><span class="tag">最小动作</span></div>
+      </div>
+    </section>
+
+    <div class="grid" id="contentGrid">
+      <section class="section">
+        <h2>简历</h2>
+        <div class="item" data-type="resume" data-keywords="大地测量 外派 俄罗斯 测绘 工程">
+          <a href="../康康求职行动台/materials/viewer.html?id=survey-overseas-resume">大地测量外派俄罗斯方向简历</a>
+          <p>优先匹配 GNSS、国际技术支持、海外测绘项目。</p>
+          <div class="tag-row"><span class="tag">主推</span><span class="tag">海外</span></div>
+        </div>
+        <div class="item" data-type="resume" data-keywords="大地测量 工程测量 测绘">
+          <a href="../康康求职行动台/materials/viewer.html?id=survey-resume">大地测量方向简历</a>
+          <p>匹配工程测量、测绘技术员、地理信息项目助理。</p>
+          <div class="tag-row"><span class="tag">测绘</span><span class="tag">工程</span></div>
+        </div>
+        <div class="item" data-type="resume" data-keywords="俄语 销售 客户服务 外贸">
+          <a href="../康康求职行动台/materials/viewer.html?id=russian-sales-resume">俄语销售方向简历</a>
+          <p>匹配俄语销售、海外客户服务、外贸助理。</p>
+          <div class="tag-row"><span class="tag">俄语</span><span class="tag">服务</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>求职规划</h2>
+        <div class="item" data-type="plan" data-keywords="个人资料 摘要 json 学历 项目 方向">
+          <a href="../个人资料摘要.md">个人资料摘要</a>
+          <p>把学历、语言、项目、方向和近期提醒整理成一个底稿。</p>
+          <div class="tag-row"><span class="tag">底稿</span><span class="tag">复用</span></div>
+        </div>
+        <div class="item" data-type="plan" data-keywords="岗位 匹配 打分 gnss 俄语 测绘">
+          <a href="../岗位匹配打分器/index.html">岗位匹配打分器</a>
+          <p>粘贴岗位描述后，初步推荐简历和材料包。</p>
+          <div class="tag-row"><span class="tag">岗位</span><span class="tag">打分</span></div>
+        </div>
+        <div class="item" data-type="plan cert" data-keywords="面试 留服 认证 行动 手册">
+          <a href="../康康求职行动台/materials/viewer.html?id=interview-cert-handbook">求职面试与留服认证行动手册</a>
+          <p>包含自我介绍、项目讲解、材料包、认证步骤。</p>
+          <div class="tag-row"><span class="tag">核心</span><span class="tag">认证</span></div>
+        </div>
+        <div class="item" data-type="plan" data-keywords="英语 俄语 面试 自我介绍">
+          <a href="../康康求职行动台/materials/viewer.html?id=en-ru-intro-card">英俄语面试自我介绍速记卡</a>
+          <p>面试前直接背 20 秒应急版和 45 秒标准版。</p>
+          <div class="tag-row"><span class="tag">英语</span><span class="tag">俄语</span></div>
+        </div>
+        <div class="item" data-type="plan" data-keywords="岗位 筛选 规则">
+          <a href="../求职行动包/02_岗位筛选规则.md">岗位筛选规则</a>
+          <p>用关键词判断岗位是否值得投，避免海投和乱投。</p>
+          <div class="tag-row"><span class="tag">筛选</span><span class="tag">投递</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>生活计划</h2>
+        <div class="item" data-type="life" data-keywords="每日计划 今天 周四 系办 成绩单 毕业证">
+          <a href="../康康求职行动台/index.html#view=calendar">2026-06-17 每日计划</a>
+          <p>包含周四取毕业证和成绩单、求职推进、腹肌训练。</p>
+          <div class="tag-row"><span class="tag">今日</span><span class="tag">生活</span></div>
+        </div>
+        <div class="item" data-type="life" data-keywords="行动安排 睡醒后 复盘 训练">
+          <a href="../康康求职行动台/index.html#view=calendar">2026-06-17 行动安排</a>
+          <p>把今天拆成睡前、睡醒后、白天、晚上训练。</p>
+          <div class="tag-row"><span class="tag">步骤</span><span class="tag">复盘</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>作品集模板</h2>
+        <div class="item" data-type="portfolio" data-keywords="作品集 1:500 3DGS 天津地铁">
+          <a href="../求职行动包/03_作品集两页模板.md">作品集两页模板</a>
+          <p>每个项目先做 2 页，够投递和面试，不追求一次完美。</p>
+          <div class="tag-row"><span class="tag">1:500</span><span class="tag">3DGS</span></div>
+        </div>
+        <div class="item" data-type="portfolio" data-keywords="面试 追问 问题库">
+          <a href="../求职行动包/04_面试追问题库.md">面试追问题库</a>
+          <p>放样、导线、CASS/CAD、COLMAP、没有实习证明。</p>
+          <div class="tag-row"><span class="tag">面试</span><span class="tag">追问</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>认证</h2>
+        <div class="item" data-type="cert" data-keywords="留服 认证 成绩单 毕业证 护照 出入境">
+          <a href="../求职行动包/00_先读我.md">求职行动包说明</a>
+          <p>提醒：2026-06-18 周四去系办取毕业证和硕士成绩单。</p>
+          <div class="tag-row"><span class="tag">周四</span><span class="tag">留服</span></div>
+        </div>
+        <div class="item" data-type="cert" data-keywords="周四 取证 留服 认证 成绩单 毕业证 国家政务服务平台">
+          <a href="../求职行动包/08_周四取证与留服认证清单.md">周四取证与留服认证清单</a>
+          <p>去系办前、到系办后、扫描命名、提交前检查都列好了。</p>
+          <div class="tag-row"><span class="tag">取证</span><span class="tag">认证</span></div>
+        </div>
+        <div class="item" data-type="cert" data-keywords="投递记录 csv">
+          <a href="../求职行动包/05_投递记录模板.csv">投递记录 CSV 模板</a>
+          <p>如果不用网页，也可以用表格记录岗位和下一步。</p>
+          <div class="tag-row"><span class="tag">记录</span><span class="tag">表格</span></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>作品截图</h2>
+        <div class="preview">
+          <figure data-type="portfolio" data-keywords="公园 地形图">
+            <a href="../assets/images/公园完成图.png"><img src="../assets/images/公园完成图.png" alt="公园完成图"></a>
+            <figcaption>公园 1:500 地形图成果</figcaption>
+          </figure>
+          <figure data-type="portfolio" data-keywords="坐标 标注">
+            <a href="../assets/images/坐标标注结果图.png"><img src="../assets/images/坐标标注结果图.png" alt="坐标标注结果图"></a>
+            <figcaption>坐标标注结果</figcaption>
+          </figure>
+          <figure data-type="portfolio" data-keywords="cad cass">
+            <a href="../assets/images/cad.png"><img src="../assets/images/cad.png" alt="CAD 截图"></a>
+            <figcaption>CAD/CASS 成图截图</figcaption>
+          </figure>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const search = document.getElementById("search");
+    const filter = document.getElementById("filter");
+    const nodes = [...document.querySelectorAll("[data-type]")];
+
+    function applyFilter() {
+      const q = search.value.trim().toLowerCase();
+      const type = filter.value;
+      nodes.forEach(node => {
+        const haystack = `${node.textContent} ${node.dataset.keywords || ""}`.toLowerCase();
+        const typeOk = type === "all" || node.dataset.type.split(" ").includes(type);
+        const queryOk = !q || haystack.includes(q);
+        node.classList.toggle("hidden", !(typeOk && queryOk));
+      });
+    }
+
+    search.addEventListener("input", applyFilter);
+    filter.addEventListener("change", applyFilter);
+  </script>
+</body>
+</html>
+
