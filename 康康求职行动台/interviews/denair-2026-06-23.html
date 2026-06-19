@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>德耐尔俄语外贸销售工程师面试卡</title>
+  <link rel="stylesheet" href="interview-editor.css">
   <style>
     :root {
       --bg: #f6f7f9;
@@ -336,7 +337,7 @@
     }
   </style>
 </head>
-<body>
+<body data-interview-storage-key="denair-2026-06-23" data-legacy-answer-key="denairEditableAnswers">
   <div class="shell">
     <aside>
       <div class="brand">
@@ -365,6 +366,19 @@
           <a class="button ghost" href="../index.html#view=calendar">看日历提醒</a>
           <a class="button" href="../materials/viewer.html?id=russian-sales-resume">打开俄语销售简历</a>
         </div>
+      </section>
+
+      <section class="editor-toolbar" aria-label="面试卡编辑工具">
+        <div>
+          <strong>整张面试卡都可以改</strong>
+          <span>打开编辑模式后可修改标题、正文和清单；中俄回答框可随时直接编辑。</span>
+        </div>
+        <div class="editor-actions">
+          <button class="editor-button" type="button" data-edit-card>编辑全页</button>
+          <button class="editor-button primary" type="button" data-save-card>保存修改</button>
+          <button class="editor-button" type="button" data-reset-card>恢复默认</button>
+        </div>
+        <p class="editor-status" data-editor-status></p>
       </section>
 
       <section class="panel verdict">
@@ -512,7 +526,7 @@
             <div class="copy-row"><button class="small-btn" data-copy-answer="pressure-ru">复制这段俄语</button></div>
           </article>
         </div>
-        <p class="save-status" id="answerSaveStatus">可直接编辑，点击“保存全部”后会保存在本机浏览器。</p>
+        <p class="save-status" id="answerSaveStatus" data-editor-status>可直接编辑，点击“保存全部”后会保存在本机浏览器。</p>
       </section>
 
       <div class="grid">
@@ -602,69 +616,7 @@
       </section>
     </main>
   </div>
-  <script>
-    const answerKey = "denairEditableAnswers";
-    const answerFields = [...document.querySelectorAll("[data-answer-key]")];
-    const statusNode = document.getElementById("answerSaveStatus");
-    const defaultAnswers = Object.fromEntries(answerFields.map(field => [field.dataset.answerKey, field.value]));
-
-    function readSavedAnswers() {
-      try {
-        return JSON.parse(localStorage.getItem(answerKey)) || {};
-      } catch {
-        return {};
-      }
-    }
-
-    function setStatus(text) {
-      if (!statusNode) return;
-      statusNode.textContent = text;
-      window.setTimeout(() => {
-        statusNode.textContent = "可直接编辑，点击“保存全部”后会保存在本机浏览器。";
-      }, 2200);
-    }
-
-    function loadAnswers() {
-      const saved = readSavedAnswers();
-      answerFields.forEach(field => {
-        if (saved[field.dataset.answerKey]) field.value = saved[field.dataset.answerKey];
-      });
-    }
-
-    function saveAnswers() {
-      const next = Object.fromEntries(answerFields.map(field => [field.dataset.answerKey, field.value]));
-      localStorage.setItem(answerKey, JSON.stringify(next));
-      setStatus("已保存中俄对照回答。");
-    }
-
-    function resetAnswers() {
-      answerFields.forEach(field => {
-        field.value = defaultAnswers[field.dataset.answerKey] || "";
-      });
-      localStorage.removeItem(answerKey);
-      setStatus("已恢复默认回答。");
-    }
-
-    function copyAnswer(key) {
-      const field = document.querySelector(`[data-answer-key="${key}"]`);
-      if (!field) return;
-      const text = field.value;
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(() => setStatus("已复制这段俄语。"));
-        return;
-      }
-      field.focus();
-      field.select();
-      document.execCommand("copy");
-      setStatus("已复制这段俄语。");
-    }
-
-    document.querySelector("[data-save-answers]").addEventListener("click", saveAnswers);
-    document.querySelector("[data-reset-answers]").addEventListener("click", resetAnswers);
-    document.querySelectorAll("[data-copy-answer]").forEach(button => {
-      button.addEventListener("click", () => copyAnswer(button.dataset.copyAnswer));
-    });
-    loadAnswers();
-  </script>
+  <script src="interview-editor.js"></script>
 </body>
 </html>
+
