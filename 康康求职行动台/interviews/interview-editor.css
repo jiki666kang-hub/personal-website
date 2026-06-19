@@ -1,0 +1,82 @@
+.editor-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 18px;
+  border: 1px solid #273449;
+  border-radius: 8px;
+  background: #111827;
+  color: #fff;
+}
+
+.editor-toolbar strong,
+.editor-toolbar span {
+  display: block;
+}
+
+.editor-toolbar span {
+  margin-top: 4px;
+  color: #cbd5e1;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.editor-button {
+  min-height: 36px;
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 255, 255, .32);
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.editor-button.primary {
+  border-color: #0f766e;
+  background: #0f766e;
+}
+
+.editor-button:hover {
+  border-color: #fff;
+}
+
+.editor-status {
+  grid-column: 1 / -1;
+  min-height: 18px;
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+.card-editing [data-card-editable="true"] {
+  outline: 2px dashed #0f766e;
+  outline-offset: 4px;
+  border-radius: 4px;
+  background: rgba(232, 243, 241, .62);
+}
+
+.card-editing [data-card-editable="true"]:focus {
+  outline-style: solid;
+  background: #fff;
+}
+
+@media (max-width: 720px) {
+  .editor-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .editor-actions {
+    justify-content: flex-start;
+  }
+}
+
