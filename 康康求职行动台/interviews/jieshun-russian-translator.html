@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>江苏捷顺俄语翻译面试卡</title>
+  <link rel="stylesheet" href="interview-editor.css">
+  <style>
+    :root {
+      --bg: #f5f7f8;
+      --ink: #111827;
+      --muted: #667085;
+      --line: #d8dee8;
+      --panel: #fff;
+      --accent: #0f766e;
+      --soft: #e8f3f1;
+      --dark: #111827;
+      --blue: #245d8f;
+      --blue-soft: #edf5fb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+    }
+
+    .shell {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    aside {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 22px;
+      overflow: auto;
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .brand {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 8px;
+      background: var(--accent);
+      font-weight: 800;
+    }
+
+    h1, h2, h3, h4, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 6px;
+      font-size: 23px;
+      line-height: 1.25;
+    }
+
+    aside p {
+      margin-bottom: 0;
+      color: #cbd5e1;
+      line-height: 1.55;
+    }
+
+    nav {
+      display: grid;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    nav a,
+    .button {
+      min-height: 38px;
+      padding: 9px 12px;
+      border: 1px solid rgba(255, 255, 255, .16);
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      background: rgba(255, 255, 255, .06);
+      font-weight: 700;
+    }
+
+    nav a:hover {
+      background: #fff;
+      color: var(--dark);
+    }
+
+    main {
+      display: grid;
+      gap: 16px;
+      padding: 24px;
+    }
+
+    .hero,
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 14px 36px rgba(28, 35, 48, .07);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: end;
+      padding: 22px;
+    }
+
+    .eyebrow {
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .hero h2 {
+      margin-bottom: 8px;
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    .hero p,
+    .muted {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+
+    .button.ghost {
+      background: #fff;
+      color: var(--accent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .panel { padding: 18px; }
+
+    .panel h3 {
+      margin-bottom: 12px;
+      font-size: 19px;
+    }
+
+    .focus {
+      border-color: rgba(15, 118, 110, .28);
+      background: var(--soft);
+    }
+
+    .translation-note {
+      border-color: rgba(36, 93, 143, .25);
+      background: var(--blue-soft);
+    }
+
+    ul, ol {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.75;
+    }
+
+    li + li { margin-top: 4px; }
+
+    .script {
+      margin: 0;
+      color: #344054;
+      line-height: 1.8;
+      white-space: pre-line;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      border-radius: 8px;
+      background: #eef2f7;
+      color: #344054;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .edit-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: end;
+      margin-bottom: 14px;
+    }
+
+    .answer-bank {
+      display: grid;
+      gap: 12px;
+    }
+
+    .answer-card {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+
+    .answer-card h4 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .answer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .edit-field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .edit-field label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .editable-answer {
+      width: 100%;
+      min-height: 148px;
+      resize: vertical;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      background: #fff;
+      font: inherit;
+      line-height: 1.65;
+    }
+
+    .editable-answer[data-lang="ru"] { color: #23324a; }
+
+    .copy-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .small-btn {
+      min-height: 34px;
+      padding: 0 11px;
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--accent);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .small-btn.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .save-status {
+      min-height: 20px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .question-list strong { color: var(--blue); }
+
+    @media (max-width: 920px) {
+      .shell,
+      .hero,
+      .grid,
+      .edit-head,
+      .answer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      aside {
+        position: relative;
+        height: auto;
+      }
+
+      main { padding: 14px; }
+      .actions { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body data-interview-storage-key="jieshun-russian-translator">
+  <div class="shell">
+    <aside>
+      <div class="brand">
+        <div class="mark">俄译</div>
+        <div>
+          <h1>江苏捷顺面试卡</h1>
+          <p>俄语翻译岗位。重点讲清俄语沟通、学校经历、未来规划和接受外派。</p>
+        </div>
+      </div>
+      <nav>
+        <a href="../index.html#view=interview">返回面试页</a>
+        <a href="#answer-bank">中俄回答库</a>
+        <a href="#school-story">学校经历</a>
+        <a href="#questions">面试反问</a>
+        <a href="../materials/viewer.html?id=en-ru-intro-card">英俄速记卡 PDF</a>
+        <a href="../materials/viewer.html?id=russian-sales-resume">俄语方向简历</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">面试时间待确认</p>
+          <h2>江苏捷顺机电工程有限公司 · 俄语翻译</h2>
+          <p>已知重点：俄语自我介绍、未来规划、学校经历，以及明确表达可以接受长期出差和海外外派。</p>
+        </div>
+        <div class="actions">
+          <a class="button ghost" href="../index.html#view=interview">返回面试页</a>
+          <a class="button" href="../materials/viewer.html?id=russian-sales-resume">打开俄语简历</a>
+        </div>
+      </section>
+
+      <section class="editor-toolbar" aria-label="面试卡编辑工具">
+        <div>
+          <strong>整张面试卡都可以改</strong>
+          <span>正文和清单需要先打开编辑模式；中俄回答框可以随时直接修改。</span>
+        </div>
+        <div class="editor-actions">
+          <button class="editor-button" type="button" data-edit-card>编辑全页</button>
+          <button class="editor-button primary" type="button" data-save-card>保存修改</button>
+          <button class="editor-button" type="button" data-reset-card>恢复默认</button>
+        </div>
+        <p class="editor-status" data-editor-status></p>
+      </section>
+
+      <section class="panel focus">
+        <h3>这场面试的主线</h3>
+        <ol>
+          <li>先用简洁俄语完成自我介绍，突出俄罗斯学习生活经历和实际沟通能力。</li>
+          <li>学校经历不要说成“做留学中介”，改为“为中国留学生提供事务协助和咨询”。</li>
+          <li>明确说可以接受长期出差和海外外派，不含糊、不回避。</li>
+          <li>翻译岗位重视准确性。遇到不懂的机电术语，要说明会确认语境、查资料并找工程师核实。</li>
+          <li>公司项目地区、外派周期、轮休、住宿和安全保障目前未知，面试时问清楚。</li>
+        </ol>
+        <div class="tag-row">
+          <span class="tag">俄语 B2</span>
+          <span class="tag">俄罗斯近两年</span>
+          <span class="tag">工程背景</span>
+          <span class="tag">接受外派</span>
+        </div>
+      </section>
+
+      <section class="panel" id="answer-bank">
+        <div class="edit-head">
+          <div>
+            <h3>可编辑中俄对照回答库</h3>
+            <p class="muted">左侧用来确认意思，右侧就是可直接练习的俄语。面试官问到哪一块，就单独回答哪一块。</p>
+          </div>
+          <div class="copy-row">
+            <button class="small-btn primary" type="button" data-save-answers>保存全部</button>
+            <button class="small-btn" type="button" data-reset-answers>恢复默认</button>
+          </div>
+        </div>
+
+        <div class="answer-bank">
+          <article class="answer-card">
+            <h4>1. 俄语自我介绍</h4>
+            <div class="answer-grid">
+              <div class="edit-field">
+                <label>中文意思</label>
+                <textarea class="editable-answer" data-answer-key="intro-cn" data-lang="cn">您好，我叫汲康康。本科是测绘工程，硕士在俄罗斯乌拉尔联邦大学学习大地测量学与测量工程。我在俄罗斯学习生活将近两年，俄语达到 B2。在校期间，我经常帮助中国留学生处理文件、学习和与老师沟通方面的问题。这些经历锻炼了我的口语沟通、准确信息传递和实际问题处理能力。我希望把俄语和工程思维用在国际项目的翻译工作中。</textarea>
+              </div>
+              <div class="edit-field">
+                <label>俄语回答</label>
+                <textarea class="editable-answer" data-answer-key="intro-ru" data-lang="ru">Здравствуйте, меня зовут Цзи Канкан. Я окончил бакалавриат по специальности «геодезия и картография», а затем магистратуру по направлению «геодезия и геодезические работы» в Уральском федеральном университете. Я почти два года учился и жил в России и владею русским языком на уровне B2. Во время учёбы я часто помогал китайским студентам решать вопросы, связанные с документами, учёбой и общением с преподавателями. Этот опыт развил мои навыки устной коммуникации, точной передачи информации и решения практических вопросов. Я хотел бы применять русский язык и инженерное мышление в работе переводчика на международных проектах.</textarea>
+              </div>
+            </div>
+            <div class="copy-row"><button class="small-btn" type="button" data-copy-answer="intro-ru">复制这段俄语</button></div>
+          </article>
+
+          <article class="answer-card">
+            <h4>2. 未来规划</h4>
+            <div class="answer-grid">
+              <div class="edit-field">
+                <label>中文意思</label>
+                <textarea class="editable-answer" data-answer-key="plan-cn" data-lang="cn">入职初期，我希望尽快熟悉公司的项目流程、机电工程术语和常见翻译场景，做到信息准确、不遗漏。之后我希望提高现场口译和技术文件翻译能力，逐步成长为可以独立支持海外项目、协调中俄双方沟通的翻译人员。</textarea>
+              </div>
+              <div class="edit-field">
+                <label>俄语回答</label>
+                <textarea class="editable-answer" data-answer-key="plan-ru" data-lang="ru">В начале работы я хочу как можно быстрее изучить процессы компании, терминологию в области электромеханического оборудования и основные ситуации, в которых требуется перевод. Для меня важно передавать информацию точно и без пропусков. В дальнейшем я хочу улучшать навыки устного перевода на объекте и перевода технических документов, чтобы самостоятельно поддерживать зарубежные проекты и координировать коммуникацию между китайской и русскоязычной сторонами.</textarea>
+              </div>
+            </div>
+            <div class="copy-row"><button class="small-btn" type="button" data-copy-answer="plan-ru">复制这段俄语</button></div>
+          </article>
+
+          <article class="answer-card">
+            <h4>3. 能否接受外派</h4>
+            <div class="answer-grid">
+              <div class="edit-field">
+                <label>中文意思</label>
+                <textarea class="editable-answer" data-answer-key="assignment-cn" data-lang="cn">可以，我能够接受长期出差和海外外派。我已经在俄罗斯独立学习生活将近两年，对海外环境和跨文化沟通有适应经验。我会认真遵守公司的项目安排。入职前，我也希望了解具体国家和地区、外派周期、轮休制度、住宿条件以及安全保障。</textarea>
+              </div>
+              <div class="edit-field">
+                <label>俄语回答</label>
+                <textarea class="editable-answer" data-answer-key="assignment-ru" data-lang="ru">Да, я готов к длительным командировкам и работе за рубежом. Я почти два года самостоятельно учился и жил в России, поэтому у меня есть опыт адаптации к зарубежной среде и межкультурного общения. Я готов серьёзно относиться к графику и требованиям проекта. Перед началом работы мне также хотелось бы уточнить страну и регион, продолжительность командировки, режим ротации, условия проживания и меры безопасности.</textarea>
+              </div>
+            </div>
+            <div class="copy-row"><button class="small-btn" type="button" data-copy-answer="assignment-ru">复制这段俄语</button></div>
+          </article>
+
+          <article class="answer-card" id="school-story">
+            <h4>4. 在学校期间做过什么</h4>
+            <div class="answer-grid">
+              <div class="edit-field">
+                <label>中文意思</label>
+                <textarea class="editable-answer" data-answer-key="school-cn" data-lang="cn">在俄罗斯学习期间，我为中国留学生提供过事务协助和咨询。我会向他们说明办理相关手续的流程，帮助解决学习和日常生活中的困难，协助联系任课老师和导师，并根据具体问题提供分步骤指导。这项工作要求我准确理解对方的问题、耐心解释信息，并协调不同人员之间的沟通。我认为这段经历对翻译工作很有帮助。</textarea>
+              </div>
+              <div class="edit-field">
+                <label>俄语回答</label>
+                <textarea class="editable-answer" data-answer-key="school-ru" data-lang="ru">Во время учёбы в России я оказывал китайским студентам консультационную и практическую помощь. Я объяснял порядок оформления необходимых документов, помогал решать трудности в учёбе и повседневной жизни, связываться с преподавателями и научными руководителями, а также давал пошаговые рекомендации в зависимости от ситуации. В этой работе было важно точно понимать вопрос, терпеливо объяснять информацию и координировать общение между несколькими сторонами. Я думаю, что этот опыт напрямую полезен для работы переводчика.</textarea>
+              </div>
+            </div>
+            <div class="copy-row"><button class="small-btn" type="button" data-copy-answer="school-ru">复制这段俄语</button></div>
+          </article>
+
+          <article class="answer-card">
+            <h4>5. 遇到不懂的技术术语怎么办</h4>
+            <div class="answer-grid">
+              <div class="edit-field">
+                <label>中文意思</label>
+                <textarea class="editable-answer" data-answer-key="terms-cn" data-lang="cn">遇到不熟悉的技术术语时，我不会猜。我会先确认上下文，查阅公司的技术文件和术语表，再向工程师核实准确含义。确认后我会记录到自己的双语术语库中，保证之后统一使用。对技术翻译来说，准确比速度更重要。</textarea>
+              </div>
+              <div class="edit-field">
+                <label>俄语回答</label>
+                <textarea class="editable-answer" data-answer-key="terms-ru" data-lang="ru">Если я встречаю незнакомый технический термин, я не буду переводить его наугад. Сначала я уточню контекст, проверю техническую документацию и глоссарий компании, а затем подтвержу точное значение у инженера. После проверки я добавлю термин в свой двуязычный словарь, чтобы дальше использовать единый вариант. В техническом переводе точность важнее поспешной догадки.</textarea>
+              </div>
+            </div>
+            <div class="copy-row"><button class="small-btn" type="button" data-copy-answer="terms-ru">复制这段俄语</button></div>
+          </article>
+
+          <article class="answer-card">
+            <h4>6. 为什么适合俄语翻译岗位</h4>
+            <div class="answer-grid">
+              <div class="edit-field">
+                <label>中文意思</label>
+                <textarea class="editable-answer" data-answer-key="fit-cn" data-lang="cn">我的优势不仅是俄语。我有工程专业背景，能够适应技术资料和项目现场；在俄罗斯生活近两年，了解当地沟通方式；帮助留学生解决问题的经历，也让我习惯在不同人员之间准确传递信息。我愿意从术语和项目流程学起，承担现场和文件翻译工作。</textarea>
+              </div>
+              <div class="edit-field">
+                <label>俄语回答</label>
+                <textarea class="editable-answer" data-answer-key="fit-ru" data-lang="ru">Моё преимущество заключается не только в знании русского языка. У меня есть инженерное образование, поэтому я готов работать с техническими материалами и на проектных объектах. Я почти два года жил в России и понимаю особенности повседневного общения. Опыт помощи студентам научил меня точно передавать информацию между разными людьми. Я готов изучать терминологию и процессы компании и выполнять как устный перевод на объекте, так и перевод документов.</textarea>
+              </div>
+            </div>
+            <div class="copy-row"><button class="small-btn" type="button" data-copy-answer="fit-ru">复制这段俄语</button></div>
+          </article>
+        </div>
+        <p class="save-status" data-editor-status>修改后点击“保存全部”，内容会保存在当前浏览器。</p>
+      </section>
+
+      <div class="grid">
+        <section class="panel translation-note">
+          <h3>可能出现的俄语问题</h3>
+          <ol class="question-list">
+            <li><strong>Расскажите, пожалуйста, о себе.</strong> 请介绍一下你自己。</li>
+            <li><strong>Чем вы занимались во время учёбы в университете?</strong> 你在大学期间做过什么？</li>
+            <li><strong>Почему вы хотите работать переводчиком?</strong> 为什么想做翻译？</li>
+            <li><strong>Каковы ваши планы на ближайшие несколько лет?</strong> 未来几年有什么规划？</li>
+            <li><strong>Готовы ли вы к длительным командировкам и работе за рубежом?</strong> 能否接受长期出差和外派？</li>
+            <li><strong>Что вы будете делать, если не знаете технический термин?</strong> 不懂技术术语时怎么办？</li>
+          </ol>
+        </section>
+
+        <section class="panel">
+          <h3>俄语救场句</h3>
+          <ul>
+            <li>Повторите вопрос, пожалуйста.（请再说一遍。）</li>
+            <li>Можно немного медленнее, пожалуйста?（可以稍微慢一点吗？）</li>
+            <li>Если я правильно понял, вы спрашиваете о...（如果我理解正确，您问的是……）</li>
+            <li>Дайте мне, пожалуйста, несколько секунд подумать.（请给我几秒钟思考。）</li>
+            <li>Я хотел бы уточнить значение этого термина, чтобы перевести его точно.（我想确认这个术语的含义，以便准确翻译。）</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="grid" id="questions">
+        <section class="panel">
+          <h3>必须向公司问清楚</h3>
+          <ol>
+            <li>俄语翻译主要服务哪个国家或地区的项目？</li>
+            <li>工作以现场口译、会议翻译还是技术文件笔译为主？</li>
+            <li>外派一次通常持续多久，轮休制度怎样安排？</li>
+            <li>公司是否提供签证、机票、住宿、保险和安全培训？</li>
+            <li>入职后是否有机电术语、项目流程和现场安全培训？</li>
+            <li>试用期、薪资结构、外派补贴和考核标准分别是什么？</li>
+          </ol>
+        </section>
+
+        <section class="panel">
+          <h3>面试前行动清单</h3>
+          <ol>
+            <li>把俄语自我介绍练到 60 至 90 秒，重点是慢、稳、清楚。</li>
+            <li>单独练三遍学校经历，熟悉“手续、导师、指导、协调”等词。</li>
+            <li>未来规划控制在 30 至 45 秒，不空喊长期目标。</li>
+            <li>外派问题直接先回答“可以”，再说明俄罗斯适应经历。</li>
+            <li>准备纸笔记录项目国家、外派周期、轮休和补贴。</li>
+            <li>面试后立刻记录听不懂的俄语问题，继续补充这张卡。</li>
+          </ol>
+        </section>
+      </div>
+
+      <section class="panel">
+        <h3>表达边界</h3>
+        <ul>
+          <li>可以明确接受外派，但不要主动承诺未知国家、无限期驻外或没有轮休也可以。</li>
+          <li>不要夸大自己已经具备专业机电翻译经验；强调工程学习能力和准确核实习惯。</li>
+          <li>学校经历重点讲沟通、协调和解决问题，不讲收费、招生或“留学中介”标签。</li>
+          <li>目前没有可靠岗位说明的部分统一在面试中确认，不预设项目国家和待遇。</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+  <script src="interview-editor.js"></script>
+</body>
+</html>
+
