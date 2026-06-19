@@ -321,6 +321,15 @@ button {
   background: var(--soft);
 }
 
+.interview-list {
+  display: grid;
+  gap: 14px;
+}
+
+.interview-list .interview-feature {
+  margin-bottom: 0;
+}
+
 .interview-feature h3 {
   margin-bottom: 6px;
 }
@@ -1041,3 +1050,4 @@ button {
     font-size: 24px;
   }
 }
+
