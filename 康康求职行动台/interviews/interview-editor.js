@@ -1,4 +1,47 @@
 (() => {
+  const durationMigrationKey = "interviewDurationThreeYearsMigrationV1";
+  const durationReplacements = [
+    [/接近两年/g, "三年"],
+    [/将近两年/g, "三年"],
+    [/近两年/g, "三年"],
+    [/почти два года/gi, "три года"],
+    [/около двух лет/gi, "три года"],
+    [/nearly two years/gi, "three years"],
+    [/almost two years/gi, "three years"],
+  ];
+
+  const migrateDurationValue = (value) => {
+    if (typeof value === "string") {
+      return durationReplacements.reduce(
+        (result, [pattern, replacement]) => result.replace(pattern, replacement),
+        value,
+      );
+    }
+    if (Array.isArray(value)) return value.map(migrateDurationValue);
+    if (value && typeof value === "object") {
+      return Object.fromEntries(
+        Object.entries(value).map(([key, item]) => [key, migrateDurationValue(item)]),
+      );
+    }
+    return value;
+  };
+
+  const migrateSavedDurations = () => {
+    if (localStorage.getItem(durationMigrationKey)) return;
+    Object.keys(localStorage).forEach((key) => {
+      if (!/interview|denair|jieshun/i.test(key)) return;
+      const raw = localStorage.getItem(key);
+      if (!raw) return;
+      try {
+        localStorage.setItem(key, JSON.stringify(migrateDurationValue(JSON.parse(raw))));
+      } catch {
+        localStorage.setItem(key, migrateDurationValue(raw));
+      }
+    });
+    localStorage.setItem(durationMigrationKey, "done");
+  };
+
+  migrateSavedDurations();
   const page = document.body;
   const pageId = page.dataset.interviewStorageKey;
   if (!pageId) return;
@@ -138,4 +181,3 @@
   setEditing(false);
   announce("修改只保存在当前浏览器，不会改变公开网站的原始内容。");
 })();
-

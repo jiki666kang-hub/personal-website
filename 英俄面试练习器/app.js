@@ -3,7 +3,7 @@ const questions = [
     mode: "en",
     type: "English self-introduction",
     q: "Please introduce yourself in 30 to 45 seconds.",
-    a: "Hello, my name is Kangkang Ji. I have a bachelor's degree in Surveying and Mapping Engineering, and a master's degree in Geodesy and Surveying Engineering from Ural Federal University. I have project experience in engineering surveying, 1:500 topographic mapping, and 3D reconstruction. I can use total stations, RTK, AutoCAD, CASS, and basic Python. I studied and lived in Russia for nearly two years. I am willing to travel and work overseas. Thank you."
+      a: "Hello, my name is Kangkang Ji. I have a bachelor's degree in Surveying and Mapping Engineering, and a master's degree in Geodesy and Surveying Engineering from Ural Federal University. I have project experience in engineering surveying, 1:500 topographic mapping, and 3D reconstruction. I can use total stations, RTK, AutoCAD, CASS, and basic Python. I studied and lived in Russia for three years. I am willing to travel and work overseas. Thank you."
   },
   {
     mode: "ru",
@@ -33,7 +33,7 @@ const questions = [
     mode: "en",
     type: "English Q&A",
     q: "Can you work in an overseas team?",
-    a: "Yes. I studied and lived in Russia for nearly two years. I can adapt to a different culture, communicate with colleagues, and accept long-term travel or overseas assignments. I hope to combine surveying technology, language communication, and field project support."
+      a: "Yes. I studied and lived in Russia for three years. I can adapt to a different culture, communicate with colleagues, and accept long-term travel or overseas assignments. I hope to combine surveying technology, language communication, and field project support."
   },
   {
     mode: "ru",
